@@ -1,4 +1,4 @@
-// @ts-check
+
 // import { test, expect } from '@playwright/test';
 
 // import { SingUpPage } from '../pages/SingUpPage.js';
