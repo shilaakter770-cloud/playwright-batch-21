@@ -118,10 +118,5 @@ git push -u origin q2-register-add-to-cart
 git push -u origin q3-product-search-checkout
 ```
 
-The configured `origin` URL returned 404 to anonymous GitHub access during
-setup, so the repository's public visibility and remote branches could not be
-verified or updated. Confirm that the repository is public and the URL is
-correct before pushing.
-
 The GitHub Actions workflow runs Playwright, generates both HTML reports, and
 uploads the Playwright report, Allure results, and Allure report.
