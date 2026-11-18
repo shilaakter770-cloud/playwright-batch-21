@@ -25,6 +25,7 @@ import { SingUpPage } from '../pages/SingUpPage.js';
 test('register for new user', async ({ page }) => {
 
   const SingUp = new SingUpPage(page);
+  const email = `shila${Date.now()}@example.com`;
 
   await SingUp.pageOpen();
   await SingUp.clickRegisterLink();
@@ -36,8 +37,7 @@ test('register for new user', async ({ page }) => {
   await SingUp.enterLastName('kumari');
   await page .waitForTimeout(2000);
 
-  await SingUp.enterEmail('');
-  await SingUp.enterEmail('shila2026@example.com');
+  await SingUp.enterEmail(email);
   await SingUp.enterPassword('Password123');
   await SingUp.enterConfirmPassword('Password123');
   await page .waitForTimeout(2000);
