@@ -1,8 +1,8 @@
+import { Base } from './Base.js';
 
-
-class SingUpPage {
+class SingUpPage extends Base {
   constructor(page) {
-    this.page = page;
+    super(page);
      this.registerLink= page.locator('a[href="/register"]');
      this.firstNameInput = page.locator('#FirstName');
      this.genderRadioButton = page.locator('#gender-male')
@@ -11,29 +11,24 @@ class SingUpPage {
      this.passwordInput = page.locator('#Password');
      this.confirmPasswordInput = page.locator('#ConfirmPassword');
      this.registerButton = page.locator('#register-button');
-    
-     
-     
-  }
-    
+     this. verifyLogin = page.locator('a[href="/logout"]');
 
- async pageOpen ( ) {
-  await this. page.goto('https://demowebshop.tricentis.com/',{
-     waitUntil: 'domcontentloaded' , timeout: 60000 });
-}
+  }
+
+
+
 
 async clickRegisterLink() {
-  await this.registerLink.click();
-
+  await this.clickElement(this.registerLink);
 }
- 
+
 async enterFirstName(firstName) {
   await this.firstNameInput.fill(firstName);
 
 }
 
 async clickGenderradioButton() {
-  await this.genderRadioButton.check();
+  await this.clickElement(this.genderRadioButton);
 }
 
 async enterLastName(lastName) {
@@ -59,7 +54,7 @@ async enterConfirmPassword(confirmPassword) {
 }
 
 async clickRegisterButton() {
-  await this.registerButton.click();
+  await this.clickElement(this.registerButton);
 }
 }
 export { SingUpPage };
