@@ -28,14 +28,24 @@ test('register for new user', async ({ page }) => {
 
   await SingUp.pageOpen();
   await SingUp.clickRegisterLink();
+  await page .waitForTimeout(2000); // Wait for 5 seconds to observe the result
+
   await SingUp.enterFirstName('shila');
   await SingUp.clickGenderradioButton();
+
   await SingUp.enterLastName('kumari');
-  await SingUp.enterEmail('shilakumari@example.com');
+  await page .waitForTimeout(2000);
+
+  await SingUp.enterEmail('');
+  await SingUp.enterEmail('shila2026@example.com');
   await SingUp.enterPassword('Password123');
   await SingUp.enterConfirmPassword('Password123');
+  await page .waitForTimeout(2000);
+
   await SingUp.clickRegisterButton();
-  await page .waitForTimeout(8000); // Wait for 5 seconds to observe the result
+  await expect(SingUp.verifyLogin).toBeVisible();
+  await page .waitForTimeout(2000);
+   // Wait for 5 seconds to observe the result
 
+// await  page.pause(); // Wait for 5 seconds to observe the result
 });
-
